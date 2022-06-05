@@ -1,5 +1,20 @@
 <div class="container">
   <h1>My Friends</h1>
+  <div class="search-area">
+    <h3>Search My Friends</h3>
+    <%= form_tag search_friend_path, method: :get, remote: true do %>
+      <div class="form-group row">
+        <div class="col-sm-9 no-right-padding">
+          <%= text_field_tag :friend, params[:friend], placeholder: "Name or email", autofocus: true, class: 'form-control form-control-lg' %>
+        </div>
+        <div class="col-sm-3 no-left-padding">
+          <%= button_tag type: :submit, class: 'btn btn-success' do %>
+            <%= fa_icon 'search 2x' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-sm-9">
       <table class="table table-bordered table-hover">
@@ -8,7 +23,7 @@
             <th scope="col">Email</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
