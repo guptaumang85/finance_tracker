@@ -9,6 +9,28 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def self.search(params)
+    params.strip!
+    to_send_back = (first_name_matches(params) + last_name_matches(params) + email_matches(params)).uniq
+    return nil unless to_send_back
+    to_send_back
+  end
+
+  def self.first_name_matches(params)
+    matches('first_name', params)
+  end
+
+  def self.last_name_matches(params)
+    matches('last_name', params)
+  end
+
+  def self.email_matches(params)
+    matches('email', params)
+  end
+
+  def self.matches(field_name, params)
+    where("#{field_name} like ?", "%#{params}%")
+  end
 
   def full_name
     return "#{first_name} #{last_name}" if first_name || last_name
@@ -27,6 +49,14 @@ class User < ApplicationRecord
 
   def can_track_stock?(ticker_symbol)
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  def is_not_friends_with?(friend_id)
+    !self.friends.where(id: friend_id).present?
   end
 
 end
