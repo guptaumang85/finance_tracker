@@ -1,6 +1,6 @@
 # README
 
-[Check out my alpha blog application deployed on heroku at](https://app-finance-tracker-01.herokuapp.com/users/sign_in)
+Check out my finance tracker application deployed on heroku at [finance-tracker](https://app-finance-tracker-01.herokuapp.com/users/sign_in).
 
 ## Technical Notes
   - Use (and customization) of devise gem for authentication
