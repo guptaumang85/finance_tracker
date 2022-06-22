@@ -1,26 +1,18 @@
 # README
 
-[Link to heroku](https://app-finance-tracker-01.herokuapp.com/users/sign_in)
+[Check out my alpha blog application deployed on heroku at](https://app-finance-tracker-01.herokuapp.com/users/sign_in)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technical Notes
+  - Use (and customization) of devise gem for authentication
+  - Ajax for form submission, in-depth
+  - Working with an external API to get stock quote information
+  - Working with sensitive credentials (such as API keys) within the app
+  - Faster development of resources using generators
+  - Bootstrap 4.3.1 installation and usage for front-end styling without the use of the bootstrap gem
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Functionality
+  - Use of third party api to get information about stocks
+  - Crud Stocks
+  - Abilty to add stocks to user portfolio
+  - Abilty to follow, unfollow friend
+  - Ability to track, see stocks of friends
